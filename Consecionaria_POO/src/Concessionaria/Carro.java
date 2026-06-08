@@ -2,8 +2,8 @@ package Concessionaria;
 
 public class Carro {
     String modelo;
-    int anoCarro;
     String marca;
+    int anoCarro;
     double valor;
     String placa;
     String tipo;
