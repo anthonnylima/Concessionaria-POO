@@ -1,4 +1,4 @@
-package Concessionaria;
+package concessionaria;
 import java.util.Scanner;
 
 public class Main {
@@ -61,7 +61,6 @@ public class Main {
                     System.out.print("Digite a placa para remover: ");
                     String placaRemover = sc.nextLine();
                     concessionaria.removerPlaca(placaRemover);
-                    System.out.println("Carro removido com sucesso!");
                     break;
 
                 case 0:
