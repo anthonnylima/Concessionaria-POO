@@ -1,6 +1,5 @@
 public class Carro {
 
-    // Atributos públicos (sem encapsulamento)
     public String modelo;
     public String marca;
     public int    ano;
@@ -8,7 +7,6 @@ public class Carro {
     public String placa;
     public String tipo;
 
-    // Construtor
     public Carro(String modelo, String marca, int ano, double valor, String placa, String tipo) {
         this.modelo = modelo;
         this.marca  = marca;
@@ -18,12 +16,10 @@ public class Carro {
         this.tipo   = tipo;
     }
 
-    // Verifica se o carro é considerado novo (até 2 anos de fabricação)
     public boolean isNovo(int anoAtual) {
         return (anoAtual - this.ano) <= 2;
     }
 
-    // Aplica um desconto percentual ao valor do carro
     public void aplicarDesconto(double percentual) {
         if (percentual > 0 && percentual < 100) {
             this.valor = this.valor - (this.valor * percentual / 100);
@@ -32,7 +28,6 @@ public class Carro {
         }
     }
 
-    // Retorna a idade do carro
     public int calcularIdade(int anoAtual) {
         return anoAtual - this.ano;
     }
