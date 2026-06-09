@@ -1,29 +1,51 @@
-package Concessionaria;
-
 public class Carro {
-    String modelo;
-    String marca;
-    int anoCarro;
-    double valor;
-    String placa;
-    String tipo;
 
-    public Carro(String modelo, int anoCarro, String marca, double valor, String placa, String tipo) {
+    // Atributos públicos (sem encapsulamento)
+    public String modelo;
+    public String marca;
+    public int    ano;
+    public double valor;
+    public String placa;
+    public String tipo;
+
+    // Construtor
+    public Carro(String modelo, String marca, int ano, double valor, String placa, String tipo) {
         this.modelo = modelo;
-        this.anoCarro = anoCarro;
-        this.marca = marca;
-        this.valor = valor;
-        this.placa = placa;
-        this.tipo = tipo;
+        this.marca  = marca;
+        this.ano    = ano;
+        this.valor  = valor;
+        this.placa  = placa;
+        this.tipo   = tipo;
+    }
+
+    // Verifica se o carro é considerado novo (até 2 anos de fabricação)
+    public boolean isNovo(int anoAtual) {
+        return (anoAtual - this.ano) <= 2;
+    }
+
+    // Aplica um desconto percentual ao valor do carro
+    public void aplicarDesconto(double percentual) {
+        if (percentual > 0 && percentual < 100) {
+            this.valor = this.valor - (this.valor * percentual / 100);
+        } else {
+            System.out.println("Percentual de desconto inválido.");
+        }
+    }
+
+    // Retorna a idade do carro
+    public int calcularIdade(int anoAtual) {
+        return anoAtual - this.ano;
     }
 
     @Override
     public String toString() {
-        return "Modelo: " + modelo +
-            "\nMarca: " + marca +
-            "\nAno do carro: " + anoCarro +
-            "\nValor: " + valor +
-            "\nPlaca: " + placa +
-            "\nTipo: " + tipo;
-	}
+        return "-------------------------------\n"
+             + "Modelo : " + modelo + "\n"
+             + "Marca  : " + marca  + "\n"
+             + "Ano    : " + ano    + "\n"
+             + "Valor  : R$ " + String.format("%.2f", valor) + "\n"
+             + "Placa  : " + placa  + "\n"
+             + "Tipo   : " + tipo   + "\n"
+             + "-------------------------------";
+    }
 }
